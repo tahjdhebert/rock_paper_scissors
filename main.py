@@ -51,11 +51,10 @@ def play():
   user_play = input("Choose your attacker (rock, paper, scissors): ")
   computer_play = random.choice(in_computer)
 
-  print(f"You played {user_play}. I played {computer_play}.")
-
   if user_play.isalpha() and user_play.lower() in [
       "r", "rock", "p", "paper", "s", "scissors"
   ]:
+    print(f"You played {user_play}. I played {computer_play}.")
     # logic for all cases where user plays rock
     if user_play.lower() in ["r", "rock"]:
 
@@ -92,6 +91,9 @@ def play():
       else:
         print("It's a tie!")
         return None
+
+  else:
+    print("That is an invalid input.")
 
 main()
 
