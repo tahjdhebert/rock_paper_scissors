@@ -8,9 +8,45 @@ QUESTION: Keeping score across multiple games
 
 import random
 
-def play():
-  in_computer = ["rock", "paper", "scissor"]
+def main():
   print("Welcome to Rock, Paper, Scissors!")
+  
+  computer_wins = 0
+  user_wins = 0
+  ties = 0
+  
+  on = True
+  while on == True:
+    result = play()
+    if result == None:
+      ties += 1
+
+    elif result == True:
+      user_wins += 1
+
+    else:
+      computer_wins += 1
+      
+    play_again = input("Do you want to play again?: ")
+
+    if play_again in ["yes", "y"]:
+      on = True
+
+    else:
+      on = False
+
+  if computer_wins > user_wins:
+    print("I won this tournament!")
+
+  elif user_wins > computer_wins:
+    print("You won this tournament!")
+
+  else:
+    print("We tied this tournament!")
+
+
+def play():
+  in_computer = ["rock", "paper", "scissors"]
 
   user_play = input("Choose your attacker (rock, paper, scissors): ")
   computer_play = random.choice(in_computer)
@@ -57,5 +93,6 @@ def play():
         print("It's a tie!")
         return None
 
+main()
 
         
